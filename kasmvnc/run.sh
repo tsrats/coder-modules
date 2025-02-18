@@ -115,11 +115,11 @@ fi
 source /etc/os-release
 distro="$ID"
 distro_version="$VERSION_ID"
-# if [[ -z "$VERSION_CODENAME" ]]; then
-#   echo "Not Debian based"
-# else
-#   codename="$VERSION_CODENAME"
-# fi
+if [[ -n "$VERSION_CODENAME" ]]; then
+  codename="$VERSION_CODENAME"
+else
+  codename="NOTDEB"
+fi
 arch="$(uname -m)"
 if [[ "$ID" == "ol" ]]; then
   distro="oracle"
