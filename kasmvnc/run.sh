@@ -115,14 +115,16 @@ fi
 source /etc/os-release
 distro="$ID"
 distro_version="$VERSION_ID"
-codename="$VERSION_CODENAME"
+if [[ "$VERSION_CODENAME" ]]; then
+  codename="$VERSION_CODENAME"
+fi
 arch="$(uname -m)"
 if [[ "$ID" == "ol" ]]; then
   distro="oracle"
   distro_version="$${distro_version%%.*}"
 elif [[ "$ID" == "fedora" ]]; then
   distro_version="$(grep -oP '\(\K[\w ]+' /etc/fedora-release | tr '[:upper:]' '[:lower:]' | tr -d ' ')"
-elif [[ "$ID" == "rocky" ]]; them
+elif [[ "$ID" == "rocky" ]]; then
   distro="oracle"
 fi
 
