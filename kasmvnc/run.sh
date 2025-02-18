@@ -128,6 +128,7 @@ elif [[ "$ID" == "fedora" ]]; then
   distro_version="$(grep -oP '\(\K[\w ]+' /etc/fedora-release | tr '[:upper:]' '[:lower:]' | tr -d ' ')"
 elif [[ "$ID" == "rocky" ]]; then
   distro="oracle"
+  distro_version="$${distro_version%%.*}"
 fi
 
 echo "Detected Distribution: $distro"
