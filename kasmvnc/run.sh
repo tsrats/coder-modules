@@ -115,7 +115,9 @@ fi
 source /etc/os-release
 distro="$ID"
 distro_version="$VERSION_ID"
-if [[ "$VERSION_CODENAME" ]]; then
+if [[ -z "$VERSION_CODENAME" ]]; then
+  echo "Not Debian based"
+else
   codename="$VERSION_CODENAME"
 fi
 arch="$(uname -m)"
