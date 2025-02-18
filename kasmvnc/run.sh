@@ -115,10 +115,10 @@ fi
 source /etc/os-release
 distro="$ID"
 distro_version="$VERSION_ID"
-if [[ -n "$VERSION_CODENAME" ]]; then
-  codename="$VERSION_CODENAME"
+if [[ "$ID" == "rocky" ]]; then
+  codename="none"
 else
-  codename="NOTDEB"
+  codename="$VERSION_CODENAME"
 fi
 arch="$(uname -m)"
 if [[ "$ID" == "ol" ]]; then
